@@ -1,0 +1,2 @@
+React icons
+npm i react-icons
