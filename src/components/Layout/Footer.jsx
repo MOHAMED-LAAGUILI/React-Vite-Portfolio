@@ -1,66 +1,57 @@
 import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { Link } from 'react-router-dom'; // Add this import for Link component
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-8">
-      <div className="container mx-auto px-8 md:px-16 lg:px-24">
-        <div className="flex flex-col md:flex-row md:space-x-12 items-center mb-4">
-          <div className="flex-1 mb-4 md:mb-0">
-            <h3 className="text-2xl font-bold mb-2">Yousaf</h3>
-            <p className="text-gray-400">
-              Full-Stack Developer based in the USA, specializing in web and
-              software development.
-            </p>
-          </div>
-          <div className="flex-1 w-full">
-            <form className="flex items-center justify-center">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="w-full p-2 rounded-l-lg bg-gray-800 border border-gray-600 
-                focus:outline-none focus:border-green-400"
-              />
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 
-                py-2 rounded-r-lg"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
+    <footer id="footer" className="relative text-white py-8 overflow-hidden">
+      {/* Background Video */}
+      <video 
+        autoPlay 
+        loop 
+        muted 
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="https://res.cloudinary.com/djmafhmnw/video/upload/f_auto:video,q_auto/v1/Portfolio/spacehole" 
+        type="video/mp4" />
+      </video>
+      
+      {/* Content Wrapper */}
+      <div className="relative container mx-auto px-8 md:px-16 lg:px-24 z-10 bg-black bg-opacity-60 rounded-lg py-6 text-center">
+        
+        {/* Logo */}
+        <div className="flex flex-col items-center mb-6">
+          <img 
+            src="https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/512x512" 
+            alt="Logo"
+            className="w-24 h-24 rounded-full border-4 border-gray-300 shadow-lg mb-3"
+          />
+          <h3 className="text-3xl font-extrabold text-white">Mohamed LAAGUILI</h3>
         </div>
 
-        <div
-          className="border-t border-gray-600 pt-4 flex flex-col md:flex-row 
-          justify-between items-center"
-        >
-          <p className="text-gray-400">
-            &copy; {new Date().getFullYear()} Yousaf. All rights reserved.
+        {/* Footer Bottom Section */}
+        <div className="border-t border-gray-500 pt-6 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-300 text-sm">
+            &copy; 2022 - {new Date().getFullYear()} All rights reserved.
           </p>
-          <div className="flex space-x-4 my-4 md:my-0">
-            <Link to="#" className="text-gray-400 hover:text-white">
+          
+          {/* Social Links */}
+          <div className="flex space-x-6 my-4 md:my-0">
+            <Link to="#" className="text-gray-300 hover:text-white text-2xl">
               <FaFacebook />
             </Link>
-            <Link to="#" className="text-gray-400 hover:text-white">
+            <Link to="#" className="text-gray-300 hover:text-white text-2xl">
               <FaTwitter />
             </Link>
-            <Link to="#" className="text-gray-400 hover:text-white">
+            <Link to="#" className="text-gray-300 hover:text-white text-2xl">
               <FaLinkedin />
             </Link>
-            <Link to="#" className="text-gray-400 hover:text-white">
+            <Link to="#" className="text-gray-300 hover:text-white text-2xl">
               <FaGithub />
             </Link>
           </div>
-          <div className="flex space-x-4">
-            <Link to="#" className="text-gray-400 hover:text-white">
-              Privacy
-            </Link>
-            <Link to="#" className="text-gray-400 hover:text-white">
-              Terms of Service
-            </Link>
-          </div>
+
+         
+
         </div>
       </div>
     </footer>

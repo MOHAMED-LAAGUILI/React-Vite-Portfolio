@@ -1,3 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --primary: #7002ee;
+    --secondary: #4d01a5;
+    --primary-soft: #c174f5;
+    --background: #f9f9f9;
+    --shadow-color: rgba(0, 0, 0, .2);
+
+    --cursor-size: 40px;
+    --cursor-ring-size: 60px;
+    --flare-size: 12px;
+    --cursor-color: #7002ee;
+    --cursor-ring-color: rgba(119, 0, 255, .4);
+    --flare-color: rgba(112, 2, 238, .7);
+    --cursor-shadow: rgba(112, 2, 238, .5);
+    --transition-duration: .3s;
+    --flare-transition-duration: .3s;
+    --flare-opacity-duration: .3s
+}
+
+
+
+
+/*---------- Generale styling ----------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif !important
+}
+
+body,
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+
+.floating {
+    animation: floating 2.3s ease-in-out infinite;
+    transition: .7s
+}
+
+@keyframes floating {
+    50% {
+        transform: translate(0, 20px)
+    }
+}
+
+/*------------- scroll Bar --------------*/
+::-webkit-scrollbar {
+    width: 8px;
+    height: 12px
+}
+
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, var(--primary), var(--primary-soft));
+    border-radius: 10px;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: background .3s ease, transform .3s ease
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, var(--secondary), var(--primary));
+    transform: scale(1.1)
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(45deg, var(--primary), var(--primary-soft));
+    transform: scale(.98)
+}
+
+::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .1)
+}
+
+::-webkit-scrollbar-corner {
+    background: #f9f9f9
+}
+
+@media (max-width:768px) {
+    ::-webkit-scrollbar {
+        width: 10px
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(45deg, var(--primary), var(--primary-soft));
+        border-radius: 5px;
+        box-shadow: 0 2px 4px var(--shadow-color);
+        transition: background .3s ease
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(45deg, var(--secondary), var(--primary))
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #e8e8e8;
+        border-radius: 5px;
+        box-shadow: inset 0 0 3px rgba(0, 0, 0, .15)
+    }
+
+    body {
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary) var(--background)
+    }
+}
+
+/*------------- Cursor --------------*/
+.cursor {
+    position: absolute;
+    z-index: 9;
+    background-color: var(--cursor-color, #fff);
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform .2s ease, background-color .3s ease;
+    box-shadow: 0 0 20px var(--cursor-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden
+}
+
+#cursor-logo {
+    width: 80%;
+    height: 80%;
+    object-fit: contain
+}
+
+.cursor-ring {
+    position: absolute;
+    z-index: 9;
+    width: var(--cursor-ring-size);
+    height: var(--cursor-ring-size);
+    border: 2px solid var(--cursor-ring-color);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform .2s ease, border var(--transition-duration) ease
+}
+
+.cursor-flare {
+    position: absolute;
+    width: var(--flare-size);
+    height: var(--flare-size);
+    background-color: var(--flare-color);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform .1s ease, opacity var(--flare-opacity-duration) ease;
+    z-index: 8
+}
+
+.hero,
+footer,
+#preloader {
+    cursor: none
+}
+
+@media (max-width:768px) {
+
+    #cursor,
+    #cursor-ring,
+    .cursor-flare {
+        display: none !important
+    }
+}
+
+
+
+
+
