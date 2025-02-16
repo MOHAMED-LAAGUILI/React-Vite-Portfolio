@@ -11,9 +11,10 @@ const Footer = () => {
         muted 
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
-        <source src="https://res.cloudinary.com/djmafhmnw/video/upload/f_auto:video,q_auto/v1/Portfolio/spacehole" 
-        type="video/mp4" />
-      </video>
+        <source src="https://res.cloudinary.com/djmafhmnw/video/upload/f_auto:video,q_auto/v1/Portfolio/spacehole"
+        type="video/webm"/>
+      Your browser does not support the video tag.
+    </video>
       
       {/* Content Wrapper */}
       <div className="relative container mx-auto px-8 md:px-16 lg:px-24 z-10 bg-black bg-opacity-60 rounded-lg py-6 text-center">

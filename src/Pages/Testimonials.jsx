@@ -1,9 +1,5 @@
-
-
-import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import Swiper from "swiper"
-import { Navigation, Pagination } from "swiper/modules"
+import Layout from "../components/Layout/Layout"
 
 const testimonials = [
   {
@@ -33,38 +29,12 @@ const testimonials = [
 ]
 
 export default function Testimonials() {
-  const swiperRef = useRef(null)
 
-  useEffect(() => {
-    const swiper = new Swiper(swiperRef.current, {
-      modules: [Navigation, Pagination],
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
-      },
-    })
 
-    return () => {
-      swiper.destroy()
-    }
-  }, [])
 
   return (
+            <Layout title="projects">
+    
     <section id="testimonials" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
         <motion.h2
@@ -75,7 +45,7 @@ export default function Testimonials() {
         >
           Client Testimonials
         </motion.h2>
-        <div className="relative" ref={swiperRef}>
+        <div className="relative">
           <div className="swiper-wrapper">
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="swiper-slide">
@@ -109,6 +79,8 @@ export default function Testimonials() {
         </div>
       </div>
     </section>
+            </Layout>
+    
   )
 }
 

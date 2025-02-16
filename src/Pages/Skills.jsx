@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion"
+import Layout from './../components/Layout/Layout';
 
 const skills = [
   { name: "React", level: 90 },
@@ -12,6 +13,8 @@ const skills = [
 
 export default function DevSkills() {
   return (
+            <Layout title="projects">
+    
     <section id="skills" className="py-20 bg-gray-800">
       <div className="container mx-auto px-4">
         <motion.h2
@@ -46,6 +49,8 @@ export default function DevSkills() {
         </div>
       </div>
     </section>
+            </Layout>
+    
   )
 }
 

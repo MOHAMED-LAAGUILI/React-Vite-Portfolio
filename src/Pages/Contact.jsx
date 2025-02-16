@@ -1,6 +1,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
+import Layout from "../components/Layout/Layout"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -22,6 +23,8 @@ export default function Contact() {
   }
 
   return (
+            <Layout title="projects">
+
     <section id="contact" className="py-20 bg-gray-800">
       <div className="container mx-auto px-4">
         <motion.h2
@@ -92,6 +95,8 @@ export default function Contact() {
         </motion.form>
       </div>
     </section>
+            </Layout>
+    
   )
 }
 

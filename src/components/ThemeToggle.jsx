@@ -20,7 +20,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setIsDarkMode((prev) => !prev)}
-      className="p-2 border rounded-full shadow-lg transition-all"
+      className="p-3 border rounded-full shadow-lg transition-all bg-black dark:bg-white"
     >
       {isDarkMode ?
        <FaSun size={25} className="text-yellow-500 " />

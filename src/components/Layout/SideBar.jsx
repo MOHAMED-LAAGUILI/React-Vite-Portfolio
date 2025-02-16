@@ -4,55 +4,39 @@ import { TbError404 } from "react-icons/tb";
 import { MdAlternateEmail } from "react-icons/md";
 import { BsStack, BsWindowStack } from "react-icons/bs";
 import { BiComment } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   return (
-    <aside className="fixed flex items-center justify-center left-0 top-1/2 transform -translate-y-1/2 z-50 w-20 flex-col bg-white bg-opacity-30 backdrop-blur-lg border-r shadow-sm transition-all rounded-md border">
+    <aside className="fixed flex items-center justify-center left-4 top-1/2 transform -translate-y-1/2 z-50 flex-col gap-4">
       <nav className="flex flex-col items-center justify-center w-full">
-        {/* Sidebar Items */}
-        <ul className="flex flex-col items-center justify-center gap-2">
-          <SidebarItem icon={<FaHome />} text="Hero" link="#hero" />
-          <SidebarItem icon={<FaUser />} text="About" link="#about" />
-          <SidebarItem icon={<BsStack />} text="Skills" link="#skills" />
-          <SidebarItem icon={<BsWindowStack />} text="Projects" link="#projects" />
-          <SidebarItem icon={<BiComment />} text="Testimonials" link="#testimonials" />
-          <SidebarItem icon={<MdAlternateEmail />} text="Contact" link="#contact" />
-          <SidebarItem icon={<TbError404 />} text="404" link="*" />
+        <ul className="flex flex-col items-center justify-center gap-3">
+          <SidebarItem icon={<FaHome />} text="Hero" link="/" />
+          <SidebarItem icon={<FaUser />} text="About" link="/about" />
+          <SidebarItem icon={<BsStack />} text="Skills" link="/skills" />
+          <SidebarItem icon={<BsWindowStack />} text="Projects" link="/projects" />
+          <SidebarItem icon={<BiComment />} text="Testimonials" link="/testimonials" />
+          <SidebarItem icon={<MdAlternateEmail />} text="Contact" link="/contact" />
+          <SidebarItem icon={<TbError404 />} text="404" link="/404" />
         </ul>
       </nav>
     </aside>
   );
 }
 
-function SidebarItem({ icon, text, link, active }) {
+function SidebarItem({ icon, text, link }) {
   return (
-    <li
-      className={`relative flex items-center justify-center py-3 px-4 my-2 font-medium rounded-md cursor-pointer transition-all group ${
-        active
-          ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
-          : "hover:bg-indigo-50 text-gray-600"
-      }`}
-    >
-      <a href={link} className="flex items-center justify-center space-x-2 hover:text-black dark:text-white dark:hover:text-black">
-        {/* Centering the icon with adjusted size and smooth transition */}
-        <div className="flex justify-center items-center text-2xl">{icon}</div>
-
-        {/* Centered text with transition and smooth reveal */}
-        <span
-          className={`overflow-hidden transition-all duration-200 ease-in-out whitespace-nowrap ${active ? "w-52 ml-3" : "w-0"}`}
-        >
-          {text}
-        </span>
-      </a>
-
-      {/* Tooltip on hover with smooth appearance */}
-      {!active && (
-        <div
-          className={`absolute left-full rounded-md px-2 py-1 ml-6 bg-indigo-100 text-indigo-800 text-sm invisible opacity-0 transition-all group-hover:visible group-hover:opacity-100 group-hover:translate-x-0`}
-        >
-          {text}
-        </div>
-      )}
+    <li className="relative group">
+      <Link
+        to={link}
+        className="flex items-center justify-center w-14 h-14 rounded-full bg-white bg-opacity-30 backdrop-blur-lg border shadow-md transition-all hover:bg-indigo-500 hover:text-white"
+      >
+        <div className="text-2xl dark:text-white">{icon}</div>
+      </Link>
+      {/* Tooltip */}
+      <div className="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 px-3 py-1 bg-gray-800 text-white text-sm rounded opacity-0 transition-opacity group-hover:opacity-100">
+        {text}
+      </div>
     </li>
   );
 }

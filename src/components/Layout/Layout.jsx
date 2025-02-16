@@ -10,9 +10,10 @@ import { useEffect, useState } from "react";
 import Preloader from "../Preloader.jsx";
 import Cursor from "../Cursor.jsx";
 import Sidebar from './SideBar.jsx';
-import ThemeToggle from "../ThemeToggle.jsx";
+// import ThemeToggle from "../ThemeToggle.jsx";
 import { FaPhone, FaWhatsapp } from "react-icons/fa";
 import ScrollToTop from "../Scroll2Top.jsx";
+import { Toaster } from "react-hot-toast";
 
 export default function Layout({
   children,
@@ -146,6 +147,11 @@ export default function Layout({
         />
         <meta name="mobile-web-app-capable" content="yes" />
          </Helmet>
+
+ {/* Toaster for Hot Toast */}
+      <Toaster />
+
+
 {/* Sidebar */}
 <Sidebar />
 
@@ -154,7 +160,7 @@ export default function Layout({
 
 <div id="particles-js" className="absolute inset-0 z-0"></div>
 
-<main className="px-24 dark:bg-gray-800 dark:text-gray-100 min-h-screen">
+<main className=" dark:bg-gray-800 dark:text-gray-100 min-h-screen">
   {children}
 </main>
 
@@ -164,10 +170,11 @@ export default function Layout({
 
       <Cursor />
 
-<div className="fixed top-5 right-5">
+{/*
+  <div className="fixed top-5 right-5 z-[100]">
 <ThemeToggle />
 </div>
-
+*/}
 <div className="fixed bottom-5 right-5 space-y-5 z-50">
         {/* WhatsApp Icon */}
         <a

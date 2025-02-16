@@ -1,27 +1,28 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Layout from '../components/Layout/Layout'
 
 const projects = [
   {
     id: 1,
     title: '3D Product Configurator',
     description: 'An interactive 3D product configurator built with Three.js and React.',
-    image: '/project1.jpg',
+    image: 'https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/Projects/Next-Shadcn-AdminDashboard',
     tags: ['React', 'Three.js', 'WebGL'],
   },
   {
     id: 2,
     title: 'E-commerce Platform',
     description: 'A full-featured e-commerce platform with real-time inventory management.',
-    image: '/project2.jpg',
+    image: 'https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/Projects/React-Redux-Ecommerce-App',
     tags: ['Next.js', 'Node.js', 'MongoDB'],
   },
   {
     id: 3,
     title: 'AI-powered Chatbot',
     description: 'An intelligent chatbot using natural language processing for customer support.',
-    image: '/project3.jpg',
+    image: 'https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/Projects/react-weather-api',
     tags: ['Python', 'TensorFlow', 'React'],
   },
 ]
@@ -30,7 +31,9 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null)
 
   return (
-    <section id="projects" className="py-20 bg-gray-900">
+        <Layout title="projects">
+    
+    <section id="projects" className="py-20 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-4xl font-bold mb-12 text-center"
@@ -100,5 +103,7 @@ export default function Projects() {
         )}
       </AnimatePresence>
     </section>
+    </Layout>
+    
   )
 }
