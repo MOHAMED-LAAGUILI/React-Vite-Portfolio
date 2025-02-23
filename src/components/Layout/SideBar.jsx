@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { FaHome, FaUser } from "react-icons/fa";
-import { TbError404 } from "react-icons/tb";
 import { MdAlternateEmail } from "react-icons/md";
 import { BsStack, BsWindowStack } from "react-icons/bs";
 import { BiComment } from "react-icons/bi";
@@ -17,7 +16,6 @@ export default function Sidebar() {
           <SidebarItem icon={<BsWindowStack />} text="Projects" link="/projects" />
           <SidebarItem icon={<BiComment />} text="Testimonials" link="/testimonials" />
           <SidebarItem icon={<MdAlternateEmail />} text="Contact" link="/contact" />
-          <SidebarItem icon={<TbError404 />} text="404" link="/404" />
         </ul>
       </nav>
     </aside>

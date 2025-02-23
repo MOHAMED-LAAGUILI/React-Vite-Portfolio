@@ -1,4 +1,4 @@
-import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaDiscord, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -37,16 +37,16 @@ const Footer = () => {
           
           {/* Social Links */}
           <div className="flex space-x-6 my-4 md:my-0">
-            <Link to="#" className="text-gray-300 hover:text-white text-2xl">
+            <Link to="https://www.facebook.com/profile.php?id=100014521591779" className="text-gray-300 hover:text-white text-2xl">
               <FaFacebook />
             </Link>
-            <Link to="#" className="text-gray-300 hover:text-white text-2xl">
-              <FaTwitter />
+            <Link to="https://discordapp.com/users/1316675038598139936" className="text-gray-300 hover:text-white text-2xl">
+              <FaDiscord />
             </Link>
-            <Link to="#" className="text-gray-300 hover:text-white text-2xl">
+            <Link to="https://www.linkedin.com/in/mohamedlaaguili2001/" className="text-gray-300 hover:text-white text-2xl">
               <FaLinkedin />
             </Link>
-            <Link to="#" className="text-gray-300 hover:text-white text-2xl">
+            <Link to="https://www.github.com/MOHAMED-LAAGUILI" className="text-gray-300 hover:text-white text-2xl">
               <FaGithub />
             </Link>
           </div>

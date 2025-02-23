@@ -6,6 +6,8 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Projects from "./Pages/Projects";
 import DevSkills from "./Pages/Skills";
+import './assets/css/Skills.css'
+import './assets/css/Projects.css'
 
 function App() {
   return (
@@ -17,7 +19,6 @@ function App() {
       <Route path="/projects" element={<Projects />} />
       <Route path="/skills" element={<DevSkills />} />
       <Route path="/testimonials" element={<Testimonials />} />
-      <Route path="/404" element={<Page404 />} />
 
       {/* 404 | Not Found Page */}
       <Route path="*" element={<Page404 />} />

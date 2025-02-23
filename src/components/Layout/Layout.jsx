@@ -2,59 +2,59 @@
 import PropTypes from "prop-types";
 
 //Head
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 // Components
 import Footer from "./Footer.jsx";
 import { useEffect, useState } from "react";
 import Preloader from "../Preloader.jsx";
 import Cursor from "../Cursor.jsx";
-import Sidebar from './SideBar.jsx';
+import Sidebar from "./SideBar.jsx";
 import ThemeToggle from "../ThemeToggle.jsx";
-import { FaPhone, FaWhatsapp } from "react-icons/fa";
 import ScrollToTop from "../Scroll2Top.jsx";
-import { Toaster } from "react-hot-toast";
-
-import logo_512x512 from '../../assets/images/512x512.webp'
+import FixedContactIcons from "../FixedContactIcons.jsx";
 
 export default function Layout({
   children,
-  title = "MOHAMED LAAGUILI - Developer",
-  description = "MERN stack Developer (HTML - CSS - JS - React/Vite - Node/Express - MongoDB - Git ).",
+  title = "MOHAMED LAAGUILI - Full Stack Web Developer",
+  description = "Full stack Developer (HTML - CSS - JS - React/Vite - Node/Express - Laravel).",
   keywords = "Mohamed, Laaguili, Front-End developer, developer, mern, react",
   author = "MOHAMED LAAGUILI",
-  ogImage_512x512 = logo_512x512,
-  email = "",
+  ogImage_512x512 = "https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/512x512",
+  email = "mohamed.dev.2001@gmail.com",
   year = `${new Date().getFullYear()}`,
   language = "en",
-  siteUrl = "",
+  siteUrl = "https://react-vite-portfolio-mu.vercel.app",
   version = "1.0.0",
-  topic = "Business",
+  topic = "Portfolio",
   color = "#ffffff",
-  favicon_icon = logo_512x512,
-  favicon_png = logo_512x512,
-  favicon_16x16 = "",
-  favicon_32x32 = "",
-  favicon_48x48 = "",
-  favicon_192x192 = "",
+  favicon_icon = "https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/512x512",
+  favicon_png = "https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/512x512",
+  favicon_16x16 = "https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/16x16",
+  favicon_32x32 = "https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/32x32",
+  favicon_48x48 = "https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/48x48",
+  favicon_192x192 = "https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/192x192",
 }) {
   const isDarkMode = localStorage.getItem("theme") === "dark";
   const themeColor = isDarkMode ? "#1a202c" : "#ffffff";
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-   
-    const timer = setTimeout(() => setLoading(false), 1000); // Simulating loading time
-    return () => clearTimeout(timer);
+    // Ensure the page is fully loaded before removing the preloader
+    const handleLoad = () => {
+      setLoading(false);
+    };
 
-    
+    if (document.readyState === "complete") {
+      // If already loaded, hide the preloader immediately
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+
+    return () => window.removeEventListener("load", handleLoad);
   }, []);
 
-  
-
-     
-    
   if (loading) {
     return <Preloader />;
   }
@@ -63,8 +63,8 @@ export default function Layout({
     <HelmetProvider>
       {/* Global Head Data */}
       <Helmet>
-         {/* SEO Meta Tags */}
-         <meta charset="UTF-8" />
+        {/* SEO Meta Tags */}
+        <meta charset="UTF-8" />
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
@@ -106,7 +106,7 @@ export default function Layout({
         <meta httpEquiv="X-Powered-By" content={author} />
 
         {/*   <!-- Open Graph Meta for Social Media --> */}
-        <meta property="og:title" content={author} />
+        <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage_512x512} />
         <meta property="og:url" content={siteUrl} />
@@ -148,62 +148,34 @@ export default function Layout({
           content="black-translucent"
         />
         <meta name="mobile-web-app-capable" content="yes" />
-         </Helmet>
+      </Helmet>
 
- {/* Toaster for Hot Toast */}
-      <Toaster />
+      {/* Sidebar */}
+      <Sidebar />
 
+      {/* Main Content */}
 
-{/* Sidebar */}
-<Sidebar />
+      <main className="dark:bg-gray-900 dark:text-gray-100 min-h-screen">
+        {children}
+      </main>
 
-
-{/* Main Content */}
-
-<div id="particles-js" className="absolute inset-0 z-0"></div>
-
-<main className="dark:bg-gray-900 dark:text-gray-100 min-h-screen">
-  {children}
-</main>
-
-
-
-
-
-      <Cursor />
-
-
-  <div className="fixed top-5 right-5 z-[100]">
-<ThemeToggle />
-</div>
-
-<div className="fixed bottom-5 right-5 space-y-5 z-50">
-        {/* WhatsApp Icon */}
-        <a
-          href="https://wa.me/212689770809"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="bg-green-500 p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 flex items-center justify-center mb-2">
-            <span>
-              <FaWhatsapp size={25} color="white" />
-            </span>
-          </div>
-        </a>
-
-        {/* Phone Icon */}
-        <a href="tel:+212689770809" target="_blank" rel="noopener noreferrer">
-          <div className="bg-blue-600 p-4  rounded-full shadow-lg hover:bg-blue-600 transition-all duration-300 flex items-center justify-center">
-            <FaPhone size={25} color="white" />
-          </div>
-        </a>
+      <div>
+        <Cursor />
       </div>
-{/* Footer */}
+
+      <div className="fixed top-5 right-5 z-[100]">
+        <ThemeToggle />
+      </div>
+
+      <div className="fixed bottom-5 right-5 space-y-5 z-50">
+        <FixedContactIcons />
+      </div>
+
+      {/* Footer */}
       <Footer />
 
       {/* ScrollToTop Icon */}
       <ScrollToTop />
-
     </HelmetProvider>
   );
 }

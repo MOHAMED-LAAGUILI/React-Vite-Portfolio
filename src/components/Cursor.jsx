@@ -5,7 +5,7 @@ const Cursor = () => {
     const cursor = document.getElementById("cursor"),
       cursorRing = document.getElementById("cursor-ring"),
       body = document.querySelector("body"),
-      heroSection = document.querySelector(".hero"),
+      heroSection = document.querySelector("#hero"),
       footerSection = document.querySelector("#footer");
 
     let cursorFlareTimeout;
@@ -111,12 +111,12 @@ const Cursor = () => {
 
   return (
     <>
-  <div>
-    <div id="cursor" className="cursor">
+  <div className="">
+    <div id="cursor" className="cursor dark:bg-white">
       <img src="https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/512x512" alt="Cursor Logo"
         id="cursor-logo" loading="lazy" title="logo" />
     </div>
-    <div id="cursor-ring" className="cursor-ring"></div>
+    <div id="cursor-ring" className="cursor-ring dark:border-white"></div>
   </div>
     </>
   );
