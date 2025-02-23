@@ -10,10 +10,12 @@ import { useEffect, useState } from "react";
 import Preloader from "../Preloader.jsx";
 import Cursor from "../Cursor.jsx";
 import Sidebar from './SideBar.jsx';
-// import ThemeToggle from "../ThemeToggle.jsx";
+import ThemeToggle from "../ThemeToggle.jsx";
 import { FaPhone, FaWhatsapp } from "react-icons/fa";
 import ScrollToTop from "../Scroll2Top.jsx";
 import { Toaster } from "react-hot-toast";
+
+import logo_512x512 from '../../assets/images/512x512.webp'
 
 export default function Layout({
   children,
@@ -21,7 +23,7 @@ export default function Layout({
   description = "MERN stack Developer (HTML - CSS - JS - React/Vite - Node/Express - MongoDB - Git ).",
   keywords = "Mohamed, Laaguili, Front-End developer, developer, mern, react",
   author = "MOHAMED LAAGUILI",
-  ogImage_512x512 = "",
+  ogImage_512x512 = logo_512x512,
   email = "",
   year = `${new Date().getFullYear()}`,
   language = "en",
@@ -29,8 +31,8 @@ export default function Layout({
   version = "1.0.0",
   topic = "Business",
   color = "#ffffff",
-  favicon_icon = "",
-  favicon_png = "",
+  favicon_icon = logo_512x512,
+  favicon_png = logo_512x512,
   favicon_16x16 = "",
   favicon_32x32 = "",
   favicon_48x48 = "",
@@ -160,7 +162,7 @@ export default function Layout({
 
 <div id="particles-js" className="absolute inset-0 z-0"></div>
 
-<main className=" dark:bg-gray-800 dark:text-gray-100 min-h-screen">
+<main className="dark:bg-gray-900 dark:text-gray-100 min-h-screen">
   {children}
 </main>
 
@@ -170,11 +172,11 @@ export default function Layout({
 
       <Cursor />
 
-{/*
+
   <div className="fixed top-5 right-5 z-[100]">
 <ThemeToggle />
 </div>
-*/}
+
 <div className="fixed bottom-5 right-5 space-y-5 z-50">
         {/* WhatsApp Icon */}
         <a
